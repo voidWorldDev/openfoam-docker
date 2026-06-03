@@ -13,13 +13,12 @@ RUN apt-get update && apt-get install -y \
   nano \
   vim \
   build-essential \
-  apt-get clean && rm -rf /var/lib/apt/lists/*
-
+  && rm -rf /var/lib/apt/lists/*
 
 RUN sh -c "wget -O - https://dl.openfoam.org/gpg.key > /etc/apt/trusted.gpg.d/openfoam.asc"
 RUN add-apt-repository http://dl.openfoam.org/ubuntu
 RUN apt -y install openfoam13
-RUN apt update && apt upgrade -y 
 RUN echo "source /opt/openfoam13/etc/bashrc" >> /root/.bashrc
+
 # Default shell
 CMD ["/bin/bash"]
