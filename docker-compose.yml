@@ -1,0 +1,16 @@
+services:
+  openfoam:
+    build: .
+    container_name: openfoam
+
+    stdin_open: true
+    tty: true
+
+    working_dir: /workspace
+
+    volumes:
+      - ./openfoam:/workspace
+
+    # restart: unless-stopped
+
+    command: bash
